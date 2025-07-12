@@ -1,12 +1,12 @@
 import React from 'react';
 import LayeredArchitecture from './LayeredArchitecture';
 import AnimatedBackground3D from './AnimatedBackground3D';
-import { useRouter } from 'next/router';
+import { useNavigate } from 'react-router-dom';
 import { useConnectModal } from '@rainbow-me/rainbowkit';
 import { useAccount } from 'wagmi';
 
 const Hero = () => {
-  const router = useRouter();
+  const navigate = useNavigate(); // ✅ used instead of next/router
   const { openConnectModal } = useConnectModal();
   const { isConnected } = useAccount();
 
@@ -14,7 +14,7 @@ const Hero = () => {
     if (!isConnected) {
       openConnectModal?.(); // prompt wallet connect
     } else {
-      router.push('/dashboard'); // redirect if already connected
+      navigate('/dashboard'); // ✅ navigate instead of router.push
     }
   };
 
