@@ -1,9 +1,23 @@
-
 import React from 'react';
 import LayeredArchitecture from './LayeredArchitecture';
 import AnimatedBackground3D from './AnimatedBackground3D';
+import { useRouter } from 'next/router';
+import { useConnectModal } from '@rainbow-me/rainbowkit';
+import { useAccount } from 'wagmi';
 
 const Hero = () => {
+  const router = useRouter();
+  const { openConnectModal } = useConnectModal();
+  const { isConnected } = useAccount();
+
+  const handleClick = () => {
+    if (!isConnected) {
+      openConnectModal?.(); // prompt wallet connect
+    } else {
+      router.push('/dashboard'); // redirect if already connected
+    }
+  };
+
   return (
     <div className="relative flex flex-col items-center justify-center text-center px-8 py-20 min-h-[80vh] overflow-hidden">
       {/* 3D Animated Background */}
@@ -25,9 +39,17 @@ const Hero = () => {
           <br />
           Sharing
         </h1>
+
+        {/* ✅ New EVRS Beta App Button */}
+        <button
+          onClick={handleClick}
+          className="mt-6 px-8 py-3 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-full transition"
+        >
+          🚀 Launch EVRS Beta App
+        </button>
         
         {/* Layered Architecture Diagram */}
-        <div className="w-full max-w-5xl mb-8">
+        <div className="w-full max-w-5xl mt-12">
           <LayeredArchitecture />
         </div>
       </div>
