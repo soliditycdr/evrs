@@ -20,12 +20,9 @@ const Hero = () => {
 
   return (
     <div className="relative flex flex-col items-center justify-center text-center px-8 py-20 min-h-[80vh] overflow-hidden">
-      {/* 3D Animated Background */}
       <AnimatedBackground3D />
       
-      {/* Content */}
       <div className="relative z-10">
-        {/* Centered tagline */}
         <div className="flex justify-center mb-8">
           <p className="text-gray-400 text-lg max-w-2xl">
             Turning Electric Vehicles into Yield-Generating, Blockchain-Powered Infrastructure
@@ -40,7 +37,6 @@ const Hero = () => {
           Sharing
         </h1>
 
-        {/* ✅ New EVRS Beta App Button */}
         <button
           onClick={handleClick}
           className="mt-6 px-8 py-3 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-full transition"
@@ -48,7 +44,6 @@ const Hero = () => {
           🚀 Launch EVRS Beta App
         </button>
         
-        {/* Layered Architecture Diagram */}
         <div className="w-full max-w-5xl mt-12">
           <LayeredArchitecture />
         </div>
