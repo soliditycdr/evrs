@@ -26,7 +26,7 @@ import {
 } from "wagmi/chains";
 import { publicProvider } from "wagmi/providers/public";
 
-// 👇 Wallet Config
+// 👇 Wallet configuration
 const { chains, publicClient } = configureChains(
   [mainnet, polygon, optimism, arbitrum],
   [publicProvider()]
