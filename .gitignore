@@ -1,0 +1,6 @@
+# Ignore unnecessary files
+node_modules
+package-lock.json
+bun.lockb
+dist
+.vercel
